@@ -16,18 +16,38 @@ export class ShowUserComponent implements OnInit {
   UserList:any=[];
 
   ngOnInit(): void {
-    this.refreshDepList();
+    this.refreshUserList();
   }
 
   closeClick(){
     this.ActivateAddEditDepComp=false;
-    this.refreshDepList();
+    this.refreshUserList();
   }
    
-  refreshDepList(){
+  refreshUserList(){
     this.service.getUserList().subscribe(data=>{
       this.UserList=data;
     });
   }
+
+  addClick(){
+    this.dep={
+      UserID:0,
+      LastName: "",
+      FirstName: "",
+      DesignationID:"",
+      Email: "",
+      UserName: "",
+      Password: "",
+      Address: "",
+      DOB: "",
+      CreatedDate: "",
+      LastModificationDate: ""
+    }
+    this.ModalTitle="Add User";
+    this.ActivateAddEditDepComp=true;
+  }
+
+
 }
 

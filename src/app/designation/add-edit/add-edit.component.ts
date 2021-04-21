@@ -18,8 +18,10 @@ export class AddEditComponent implements OnInit {
   }
 
   addDesignation(){
-    var val = {DesignationID:this.DesignationID,
-      DesignationName:this.DesignationName};
+    var val = {
+      DesignationID:this.DesignationID,
+      DesignationName:this.DesignationName
+    };
     this.service.addDesignation(val).subscribe(res=>{
       alert(res.toString());
     });

@@ -6,8 +6,11 @@ import { AppComponent } from './app.component';
 import { DesignationComponent } from './designation/designation.component';
 import { ShowDesComponent } from './designation/show-des/show-des.component';
 import { AddEditComponent } from './designation/add-edit/add-edit.component';
-import{SharedService} from './shared.service';
+import { UserComponent } from './user/user.component';
+import { AddEditUserComponent } from './user/add-edit-user/add-edit-user.component';
+import { ShowUserComponent } from './user/show-user/show-user.component';
 
+import{SharedService} from './shared.service';
 import{HttpClientModule} from '@angular/common/http';
 import{FormsModule,ReactiveFormsModule} from '@angular/forms';
 
@@ -16,7 +19,10 @@ import{FormsModule,ReactiveFormsModule} from '@angular/forms';
     AppComponent,
     DesignationComponent,
     ShowDesComponent,
-    AddEditComponent
+    AddEditComponent,
+    UserComponent,
+    AddEditUserComponent,
+    ShowUserComponent
   ],
   imports: [
     BrowserModule,

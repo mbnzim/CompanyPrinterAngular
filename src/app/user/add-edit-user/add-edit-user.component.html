@@ -1,46 +1,58 @@
 <form>
 <div class="form-froup ">
 
-    <label class="col-sm-2 col-form-label">Last Name</label>
+    <label class="col-sm-2 col-form-label">Last Name:</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" [(ngModel)]="LastName" [ngModelOptions]="{standalone: true}" 
-        placeholder="Enter Last Name">
+      >
     </div>
     
-    <label class="col-sm-2 col-form-label">First Name</label>
+    <label class="col-sm-2 col-form-label">First Name:</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" [(ngModel)]="FirstName" [ngModelOptions]="{standalone: true}" 
-        placeholder="Enter First Name">
+       >
     </div>
     
-    <label class="col-sm-2 col-form-label">DesignationID</label>
+    <label class="col-sm-2 col-form-label">DesignationID:</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" [(ngModel)]="DesignationID"  [ngModelOptions]="{standalone: true}" 
-        placeholder="Enter DesignationID">
+       >
     </div>
+    <!-- <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select> -->
     
-    <label class="col-sm-2 col-form-label">Email</label>
+    <label class="col-sm-2 col-form-label">Email:</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" [(ngModel)]="Email"  [ngModelOptions]="{standalone: true}" 
-        placeholder="Enter Email">
+        >
     </div>
     
-    <label class="col-sm-2 col-form-label">UserName</label>
+    <label class="col-sm-2 col-form-label">UserName:</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" [(ngModel)]="UserName"  [ngModelOptions]="{standalone: true}" 
-        placeholder="Enter User Name">
+       >
     </div>
    
-    <label class="col-sm-2 col-form-label">Password</label>
+    <label class="col-sm-2 col-form-label">Password:</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="Password"  [ngModelOptions]="{standalone: true}" 
-        placeholder="Enter Password">
+        <input type="password" class="form-control" [(ngModel)]="Password"  [ngModelOptions]="{standalone: true}" 
+       >
     </div>
     
-    <label class="col-sm-2 col-form-label">Address</label>
+    <label class="col-sm-2 col-form-label">Address:</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" [(ngModel)]="Address" [ngModelOptions]="{standalone: true}" 
-        placeholder="Enter Address">
+        >
+    </div>
+    <label class="col-sm-2 col-form-label">Date Of Birth:</label>
+    <div class="col-sm-10">
+        <input  type="date" name="bday" min="1000-01-01"
+        max="3000-12-31" class="form-control"  [(ngModel)]="DOB" [ngModelOptions]="{standalone: true}" 
+        >
     </div>
 <!--     
     <label class="col-sm-2 col-form-label">DOB</label>
@@ -48,12 +60,13 @@
         <input type="text" class="form-control" [(ngModel)]="DOB"
         placeholder="Enter DOB">
     </div> -->
+    
 </div>
 
 <button (click)="addUser()" *ngIf="dep.UserID==0"  class="btn btn-primary">
     Add
 </button>
-<!-- <button type="submit" class="btn btn-primary"  (click)="addUser()" *ngIf="dep.UserID==0">Submit</button> -->
+
 
 </form>
 <!-- <button (click)="updateDesignation()" *ngIf="dep.DesignationID!=0" class="btn btn-primary">

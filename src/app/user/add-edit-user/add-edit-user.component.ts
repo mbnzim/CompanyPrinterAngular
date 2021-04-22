@@ -24,6 +24,8 @@ export class AddEditUserComponent implements OnInit {
   CreatedDate:string= "";
   LastModificationDate:string="";
 
+  designtionList:any=[];
+
   ngOnInit(): void {
     this.UserID = this.dep.UserID;
     this.LastName = this.dep.LastName;
@@ -34,7 +36,12 @@ export class AddEditUserComponent implements OnInit {
     this.Password = this.dep.Password;
     this.Address = this.dep.Address;
     this.DOB = this.dep.DOB;
+
+    this.service.getDesignationList().subscribe(data=>{
+      this.designtionList=data;
+    });
   }
+
   addUser(){
     var val = {
       UserID:this.UserID,
@@ -52,4 +59,30 @@ export class AddEditUserComponent implements OnInit {
       alert(res.toString());
     });
   }
+
+
+  updateUser(){
+    var val = {
+       UserID:this.UserID,
+      LastName:this.LastName,
+      FirstName:this.FirstName,
+      DesignationID:this.DesignationID,
+      Email:this.Email,
+      UserName:this.UserName,
+      Password:this.Password,
+      Address:this.Address,
+      DOB:this.DOB
+    };
+    this.service.updateUser(val).subscribe(res=>{
+    alert(res.toString());
+    });
+  }
+
+     
+  // refreshUserList(){
+  //   this.service.getUserList().subscribe(data=>{
+  //     this.UserList=data;
+  //   });
+  // }
+
 }

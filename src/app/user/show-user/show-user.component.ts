@@ -14,7 +14,9 @@ export class ShowUserComponent implements OnInit {
   ActivateAddEditDepComp:boolean=false;
   dep:any; 
   UserList:any=[];
+  designtionList:any=[];
 
+  // this.DesigntionList=data;
   ngOnInit(): void {
     this.refreshUserList();
   }
@@ -48,6 +50,11 @@ export class ShowUserComponent implements OnInit {
     this.ActivateAddEditDepComp=true;
   }
 
+  editClick(item: any){
+    this.dep=item;
+    this.ModalTitle="Update User";
+    this.ActivateAddEditDepComp=true;
+  }
 
-}
+  }
 

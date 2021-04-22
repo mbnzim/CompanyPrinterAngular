@@ -30,7 +30,7 @@ export class ShowDesComponent implements OnInit {
   
   editClick(item: any){
     this.dep=item;
-    this.ModalTitle="Edit Designation";
+    this.ModalTitle="Update Designation";
     this.ActivateAddEditDepComp=true;
   }
 

@@ -37,4 +37,35 @@ export class SharedService {
   updateUser(val: any):Observable<any[]> {
     return this.http.put<any>(this.APIUrl + '/Users', val);
   }
+
+    //Printer End points
+    getPrinterList(): Observable<any[]> {
+      return this.http.get<any>(this.APIUrl + '/Printer');
+    }
+  
+    
+    addPrinter(val: any) {
+    return this.http.post(this.APIUrl + '/Printer', val);
+  }
+
+  
+  updatePrinter(val: any):Observable<any[]> {
+    return this.http.put<any>(this.APIUrl + '/Printer', val);
+  }
+
+    //PrinterMake End points
+    getPrinterMakeList(): Observable<any[]> {
+      return this.http.get<any>(this.APIUrl + '/PrinterMake');
+    }
+  
+    
+    addPrinterMake(val: any) {
+    return this.http.post(this.APIUrl + '/PrinterMake', val);
+  }
+
+  
+  updatePrinterMake(val: any):Observable<any[]> {
+    return this.http.put<any>(this.APIUrl + '/PrinterMake', val);
+  }
+
 }

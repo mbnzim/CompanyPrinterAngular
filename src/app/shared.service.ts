@@ -38,6 +38,10 @@ export class SharedService {
     return this.http.put<any>(this.APIUrl + '/Users', val);
   }
 
+  deleteUser(val: any) {
+    return this.http.put(this.APIUrl + '/Users/Delete?id='+val,"");
+  }
+
     //Printer End points
     getPrinterList(): Observable<any[]> {
       return this.http.get<any>(this.APIUrl + '/Printer');

@@ -30,10 +30,17 @@
            >
         </div>
        
-        <label class="col-sm-2 col-form-label">PrinterMakeID:</label>
+        <label class="col-sm-2 col-form-label">Printer Make:</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" [(ngModel)]="PrinterMakeID"  [ngModelOptions]="{standalone: true}" 
-           >
+            <select class="form-control" [(ngModel)]="PrinterMakeID"  [ngModelOptions]="{standalone: true}" >
+                <option>
+                    --Select--
+                </option>
+                <option *ngFor ="let dataItem of printermakeList" [value]="dataItem.PrinterMakeID"> 
+                    {{dataItem.PrinterMakeName}}
+                </option>
+        
+            </select> 
         </div>
         
         <label class="col-sm-2 col-form-label">Active:</label>

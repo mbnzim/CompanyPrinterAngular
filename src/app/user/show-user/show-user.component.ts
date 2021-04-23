@@ -56,5 +56,29 @@ export class ShowUserComponent implements OnInit {
     this.ActivateAddEditDepComp=true;
   }
 
+
+  deleteClick(item:any){
+    if(confirm('Are you sure??')){
+      this.service.deleteUser(item.UserID).subscribe(data=>{
+        alert(data.toString());
+        this.refreshUserList();
+      })
+    }
+  }
+  // deleteClick(item: any){
+  //   this.dep=item;
+  //   this.ModalTitle="Update User";
+  //   this.ActivateAddEditDepComp=true;
+  // }
+
+  // deleteClick(item:any){
+  //   if(confirm('Are you sure??')){
+  //     this.service.deleteDesignation(item.DesignationID).subscribe(data=>{
+  //       alert(data.toString());
+  //       this.refreshDepList();
+  //     })
+  //   }
+  // }
+  
   }
 

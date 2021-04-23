@@ -20,6 +20,7 @@ export class AddEditPrinterComponent implements OnInit {
   Active:number= 0;
   CreatedDate:string= "";
   LastModificationDate:string="";
+  printermakeList:any=[];
 
   ngOnInit(): void {
     this.EngenPrintersID=this.printer.EngenPrintersID;
@@ -31,6 +32,10 @@ export class AddEditPrinterComponent implements OnInit {
     this.Active=this.printer.Active;
     this.CreatedDate=this.printer.CreatedDate;
     this.LastModificationDate=this.printer.LastModificationDate;
+
+    this.service.getPrinterMakeList().subscribe(data=>{
+      this.printermakeList=data;
+    });
   }
 
   addPrinter(){

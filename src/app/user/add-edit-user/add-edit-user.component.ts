@@ -78,6 +78,12 @@ export class AddEditUserComponent implements OnInit {
     });
   }
 
+  // deleteUser(){
+  //   var val={UserID:this.UserID,}
+  //   this.service.deleteUser(val).subscribe(res=>{
+  //     alert(res.toString());
+  //   });
+  // }
      
   // refreshUserList(){
   //   this.service.getUserList().subscribe(data=>{

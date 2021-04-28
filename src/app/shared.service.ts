@@ -25,8 +25,9 @@ export class SharedService {
   updateDesignation(val: any) {
     return this.http.put(this.APIUrl + '/Designation', val);
   }
+
   deleteDesignation(val: any) {
-    return this.http.delete(this.APIUrl + '/Designation/' + val);
+    return this.http.put(this.APIUrl + '/Designation/Delete?id='+val,"");
   }
 
   //User End points
@@ -74,6 +75,10 @@ export class SharedService {
   
   updatePrinterMake(val: any):Observable<any[]> {
     return this.http.put<any>(this.APIUrl + '/PrinterMake', val);
+  }
+
+  deletePrinterMake(val: any) {
+    return this.http.put(this.APIUrl + '/PrinterMake/Delete?id='+val,"");
   }
 
   //Document End points

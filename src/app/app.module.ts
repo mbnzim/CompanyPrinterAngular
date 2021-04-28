@@ -25,6 +25,9 @@ import { DocumentComponent } from './document/document.component';
 import { ShowDocComponent } from './document/show-doc/show-doc.component';
 import { AddEditDocComponent } from './document/add-edit-doc/add-edit-doc.component';
 import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './auth/auth.guard';
+import { DefaultHomeComponent } from './default-home/default-home.component';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +49,9 @@ import { HomeComponent } from './home/home.component';
     DocumentComponent,
     ShowDocComponent,
     AddEditDocComponent,
-    HomeComponent
+    HomeComponent,
+    DefaultHomeComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,7 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [SharedService],
+  providers: [SharedService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

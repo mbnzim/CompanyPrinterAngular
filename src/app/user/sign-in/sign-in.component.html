@@ -1,5 +1,5 @@
 <!-- <p>sign-in works!</p> -->
-<div *ngIf="isLoginError" class="red-text center error-message">
+<!-- <div *ngIf="isLoginError" class="red-text center error-message">
     <i class="material-icons">error</i> Incorrect username or password
 </div>
 <form #loginForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
@@ -20,4 +20,56 @@
           <button [disabled]="!loginForm.valid" class="btn-large btn-submit" type="submit">Login</button>
         </div>
       </div>
-</form>
+</form> -->
+
+<!------ Include the above in your HEAD tag ---------->
+<div *ngIf="isLoginError" class="red-text center error-message">
+  <i class="material-icons">error</i> Incorrect username or password
+</div>
+<div class="container">
+
+	<div class="row text-center">
+	    <div class="col-md-6 offset-md-3">
+	        <div class="card">
+	            <div class="card-body" >
+	                <!-- <div class="login-img">
+	                    <img src="https://demos6.softaculous.com/PrestaShop/img/preston-login@2x.png">
+	                </div> -->
+	                <div class="login-title">
+	                    <h4>Log In</h4>
+	                </div>
+	                <div class="login-form mt-4">
+	                    <form #loginForm="ngForm" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
+                        <div class="form-row" >
+                            <div class="form-group col-md-12">
+                              <input type="text" #UserName ngModel name="UserName" placeholder="Username" required>
+                            </div>
+                            <div class="form-group col-md-12">
+                              <input type="password" #Password ngModel name="Password" placeholder="Password" required>
+                            </div>
+                          </div>
+                         <div class="form-row">
+                        <div class="form-group">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="updatecheck1">
+                                  <label class="form-check-label" for="updatecheck1">
+                                    <small>Remember Me</small>
+                                    
+                                  </label>
+                                </div>
+                              </div>
+                          </div>                        
+                        
+                        <div class="form-row">
+                          <button [disabled]="!loginForm.valid" class="btn-large btn-submit" type="submit">Login</button>
+                        </div>
+                    </form>
+	                </div>
+	                <div class="logi-forgot text-right mt-2">
+	                    <a href="#">Reset Password </a>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

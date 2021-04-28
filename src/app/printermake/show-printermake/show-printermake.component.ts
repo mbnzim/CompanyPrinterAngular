@@ -35,14 +35,14 @@ export class ShowPrintermakeComponent implements OnInit {
     this.ActivateAddEditDepComp=true;
   }
 
-  // deleteClick(item:any){
-  //   if(confirm('Are you sure??')){
-  //     this.service.deleteDesignation(item.DesignationID).subscribe(data=>{
-  //       alert(data.toString());
-  //       this.refreshDepList();
-  //     })
-  //   }
-  // }
+  deleteClick(item:any){
+    if(confirm('Are you sure??')){
+      this.service.deletePrinterMake(item.PrinterMakeID).subscribe(data=>{
+        alert(data.toString());
+        this.refreshPrinterMakeList();
+      })
+    }
+  }
   
   closeClick(){
     this.ActivateAddEditDepComp=false;

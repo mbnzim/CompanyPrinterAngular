@@ -18,7 +18,7 @@ export class AddEddPrintermakeComponent implements OnInit {
 
   ngOnInit(): void {
     this.PrinterMakeID=this.printermake.PrinterMakeID;
-    this.PrinterMakeName=this.printermake.PrinterMakeID;
+    this.PrinterMakeName=this.printermake.PrinterMakeName;
     this.Status= this.printermake.Status;
   }
 

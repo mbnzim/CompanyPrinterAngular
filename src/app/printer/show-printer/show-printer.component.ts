@@ -14,6 +14,8 @@ export class ShowPrinterComponent implements OnInit {
   ActivateAddEditDepComp:boolean=false;
   printer:any; 
   PrinterList:any=[];
+  PrinterNameFilter: string = "";
+  PrinterListWithoutFilter: any=[];
 
   ngOnInit(): void {
     this.refreshPrinterList();
@@ -50,6 +52,27 @@ export class ShowPrinterComponent implements OnInit {
   refreshPrinterList(){
     this.service.getPrinterList().subscribe(data=>{
       this.PrinterList=data;
+      this.PrinterListWithoutFilter=data;
+    });
+    this.PrinterNameFilter="";
+  }
+
+  Filterfn() {
+    var PrinterNameFilter = this.PrinterNameFilter;
+ 
+    this.PrinterList = this.PrinterListWithoutFilter.filter(function (el:any) {
+      return el.PrinterName.toString().toLowerCase().includes(PrinterNameFilter.toString().trim().toLowerCase())
+    });
+  }
+ 
+  sortResult(prop: any, asc: any) {
+    this.PrinterList = this.PrinterListWithoutFilter.sort(function (a:any, b:any) {
+      if (asc) {
+        return (a[prop] > b[prop]) ? 1 : (a[prop] < b[prop] ? -1 : 0)
+      }
+      else {
+        return (b[prop] > a[prop]) ? 1 : (b[prop] < a[prop] ? -1 : 0)
+      }
     });
   }
 

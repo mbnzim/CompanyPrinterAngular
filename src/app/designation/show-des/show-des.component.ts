@@ -15,6 +15,9 @@ export class ShowDesComponent implements OnInit {
   dep:any; 
   DesigntionList:any=[];
 
+  DesignationNameFilter: string = "";
+  DesignationListWithoutFilter: any=[];
+
   ngOnInit(): void {
     this.refreshDepList();
   }
@@ -51,6 +54,27 @@ export class ShowDesComponent implements OnInit {
   refreshDepList(){
     this.service.getDesignationList().subscribe(data=>{
       this.DesigntionList=data;
+      this.DesignationListWithoutFilter=data;
+    });
+    this.DesignationNameFilter="";
+  }
+
+  Filterfn() {
+    var DesignationNameFilter = this.DesignationNameFilter;
+ 
+    this.DesigntionList = this.DesignationListWithoutFilter.filter(function (el:any) {
+      return el.DesignationName.toString().toLowerCase().includes(DesignationNameFilter.toString().trim().toLowerCase())
+    });
+  }
+ 
+  sortResult(prop: any, asc: any) {
+    this.DesigntionList = this.DesignationListWithoutFilter.sort(function (a:any, b:any) {
+      if (asc) {
+        return (a[prop] > b[prop]) ? 1 : (a[prop] < b[prop] ? -1 : 0)
+      }
+      else {
+        return (b[prop] > a[prop]) ? 1 : (b[prop] < a[prop] ? -1 : 0)
+      }
     });
   }
 

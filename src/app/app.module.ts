@@ -19,6 +19,12 @@ import { AddEditPrinterComponent } from './printer/add-edit-printer/add-edit-pri
 import { PrintermakeComponent } from './printermake/printermake.component';
 import { ShowPrintermakeComponent } from './printermake/show-printermake/show-printermake.component';
 import { AddEddPrintermakeComponent } from './printermake/add-edd-printermake/add-edd-printermake.component';
+import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { DocumentComponent } from './document/document.component';
+import { ShowDocComponent } from './document/show-doc/show-doc.component';
+import { AddEditDocComponent } from './document/add-edit-doc/add-edit-doc.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,13 @@ import { AddEddPrintermakeComponent } from './printermake/add-edd-printermake/ad
     AddEditPrinterComponent,
     PrintermakeComponent,
     ShowPrintermakeComponent,
-    AddEddPrintermakeComponent
+    AddEddPrintermakeComponent,
+    SignUpComponent,
+    SignInComponent,
+    DocumentComponent,
+    ShowDocComponent,
+    AddEditDocComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

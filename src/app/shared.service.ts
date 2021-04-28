@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+// import { HttpClient } from '@angular/common/http';
+// import { Observable } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SharedService {
   readonly APIUrl = 'https://localhost:44329/api';
+  readonly rootUrl = 'https://localhost:44329';
+
   constructor(private http: HttpClient) {}
 
   //Designation End points
@@ -71,5 +75,26 @@ export class SharedService {
   updatePrinterMake(val: any):Observable<any[]> {
     return this.http.put<any>(this.APIUrl + '/PrinterMake', val);
   }
+
+  //Document End points
+  getDocumentList(): Observable<any[]> {
+    return this.http.get<any>(this.APIUrl + '/Document');
+  }
+
+  
+  addDocumentMake(val: any) {
+  return this.http.post(this.APIUrl + '/Document', val);
+}
+
+
+updateDocumentMake(val: any):Observable<any[]> {
+  return this.http.put<any>(this.APIUrl + '/Document', val);
+}
+
+userAuthentication(userName:any, password:any) {
+  var data = "username=" + userName + "&password=" + password + "&grant_type=password";
+  var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded','No-Auth':'True' });
+  return this.http.post(this.rootUrl + '/token', data, { headers: reqHeader });
+}
 
 }

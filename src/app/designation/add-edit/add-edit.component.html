@@ -1,11 +1,20 @@
-<div class="form-froup row">
+<form [formGroup]="userForm" novalidate name="userForm">
 
+<div class="form-froup row" >
+   
+<div class="form-group">
     <label class="col-sm-2 col-form-label">Designation Name</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="DesignationName"
+        <input type="text" formControlName="DesignationName" class="form-control" [(ngModel)]="DesignationName"
         placeholder="Enter Designation Name">
     </div>
+    <div *ngIf="getControl.DesignationName.touched && getControl.DesignationName.invalid" class="text-danger">
+        <div *ngIf="getControl.DesignationName.errors.required">Designation name is required.</div>
+      </div>
+</div>
 </div> 
+
+</form>
 
 <button (click)="addDesignation()" *ngIf="dep.DesignationID==0" class="btn btn-light btn-outline-dark">
     Add

@@ -27,7 +27,8 @@ import { AddEditDocComponent } from './document/add-edit-doc/add-edit-doc.compon
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { DefaultHomeComponent } from './default-home/default-home.component';
- import {NgxPaginationModule} from 'ngx-pagination'; 
+import {NgxPaginationModule} from 'ngx-pagination'; 
+ 
 
 
 

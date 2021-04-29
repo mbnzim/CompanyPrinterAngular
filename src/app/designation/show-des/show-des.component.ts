@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SharedService} from 'src/app/shared.service';
 
+
 @Component({
   selector: 'app-show-des',
   templateUrl: './show-des.component.html',
@@ -19,11 +20,15 @@ export class ShowDesComponent implements OnInit {
 
   DesignationNameFilter: string = "";
   DesignationListWithoutFilter: any=[];
+  userForm: any;
 
   ngOnInit(): void {
     this.refreshDepList();
+  
   }
 
+ 
+  
   addClick(){
     this.dep={
       DesignationID:0,

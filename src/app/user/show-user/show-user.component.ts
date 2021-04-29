@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SharedService} from 'src/app/shared.service';
 
+
 @Component({
   selector: 'app-show-user',
   templateUrl: './show-user.component.html',
@@ -22,10 +23,9 @@ export class ShowUserComponent implements OnInit {
 
   pagedata: Array<any> = [];
   totalRecords:number=0;
-  page:Number=1;
+  page:any=1;
 
 
-  // this.DesigntionList=data;
   ngOnInit(): void {
     this.refreshUserList();
   }
@@ -39,8 +39,8 @@ export class ShowUserComponent implements OnInit {
     this.service.getUserList().subscribe(data=>{
       this.UserList=data;
       this.PrinterListWithoutFilter=data;
-      this.pagedata=data
-      this.totalRecords=data.length
+      this.pagedata=data;
+      this.totalRecords=data.length;
     });
     this.PrinterNameFilter="";
   }

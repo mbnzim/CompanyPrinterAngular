@@ -14,6 +14,8 @@ export class ShowDesComponent implements OnInit {
   ActivateAddEditDepComp:boolean=false;
   dep:any; 
   DesigntionList:any=[];
+  totalRecords:number=0;
+  page:any=1;
 
   DesignationNameFilter: string = "";
   DesignationListWithoutFilter: any=[];
@@ -55,6 +57,7 @@ export class ShowDesComponent implements OnInit {
     this.service.getDesignationList().subscribe(data=>{
       this.DesigntionList=data;
       this.DesignationListWithoutFilter=data;
+      this.totalRecords = data.length;
     });
     this.DesignationNameFilter="";
   }

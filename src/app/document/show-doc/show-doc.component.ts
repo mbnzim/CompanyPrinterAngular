@@ -13,7 +13,10 @@ export class ShowDocComponent implements OnInit {
   ModalTitle:string="";
   ActivateAddEditDepComp:boolean=false;
   doc:any; 
- DocList:any=[];
+  DocList:any=[];
+  totalRecords:number=0;
+  page:any=1;
+
   ngOnInit(): void {
     this.refreshDocList();
   }
@@ -26,6 +29,7 @@ export class ShowDocComponent implements OnInit {
   refreshDocList(){
     this.service.getDocumentList().subscribe(data=>{
       this.DocList=data;
+      this.totalRecords = data.length;
     });
   }
 }

@@ -18,6 +18,9 @@ export class ShowPrinterComponent implements OnInit {
   PrinterNameFilter: string = "";
   PrinterListWithoutFilter: any=[];
   deletePrinters:any=[];
+  totalRecords:number=0;
+  page:any=1;
+
 
   ngOnInit(): void {
     this.refreshPrinterList();
@@ -55,6 +58,7 @@ export class ShowPrinterComponent implements OnInit {
     this.service.getPrinterList().subscribe(data=>{
       this.PrinterList=data;
       this.PrinterListWithoutFilter=data;
+      this.totalRecords=data.length;
     });
     this.PrinterNameFilter="";
   }

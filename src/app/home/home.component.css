@@ -25,3 +25,6 @@ ul {
     background-color: rgb(49, 49, 75);
     color: white;
   }
+  .active {
+    background-color:  rgb(49, 49, 75);
+  }

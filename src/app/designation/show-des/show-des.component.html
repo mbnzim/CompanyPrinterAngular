@@ -62,7 +62,14 @@ data-backdrop="static" data-keyboard="false"
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let dataItem of DesigntionList">
+        <tr *ngFor="let dataItem of DesigntionList | paginate:
+         {  
+           id: 'listing_pagination',
+           itemsPerPage: 10,
+           currentPage: page,
+           totalItems: totalRecords
+          }"   
+        >
             <td>{{dataItem.DesignationName}}</td>           
             <td><button type="button" class="btn btn-light mt-1"
                 data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -84,3 +91,4 @@ data-backdrop="static" data-keyboard="false"
         </tr>
     </tbody>
 </table>
+<pagination-controls  id="listing_pagination"  (pageChange)="page = $event"></pagination-controls>

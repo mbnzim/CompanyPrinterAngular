@@ -54,7 +54,7 @@ import { DefaultHomeComponent } from './default-home/default-home.component';
     AddEditDocComponent,
     HomeComponent,
     DefaultHomeComponent,
-    //NgxPaginationModule
+
     
   ],
   imports: [

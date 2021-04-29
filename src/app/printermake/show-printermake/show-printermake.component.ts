@@ -14,6 +14,8 @@ export class ShowPrintermakeComponent implements OnInit {
   ActivateAddEditDepComp:boolean=false;
   printermake:any; 
   PrinterMakeList:any=[];
+  totalRecords:number=0;
+  page:any=1;
 
   ngOnInit(): void {
     this.refreshPrinterMakeList();
@@ -52,6 +54,7 @@ export class ShowPrintermakeComponent implements OnInit {
   refreshPrinterMakeList(){
     this.service.getPrinterMakeList().subscribe(data=>{
       this.PrinterMakeList=data;
+      this.totalRecords = data.length;
     });
   }
 }

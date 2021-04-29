@@ -1,5 +1,8 @@
 
 <!-- Button trigger modal -->
+<app-home></app-home>
+<br><br><br>
+<button  class="m-1 btn btn-light btn-outline-dark  float-right m-2" (click)= "deletePrinter()" >Delete Printer</button>
 <button type="button" class="m-1 btn btn-light btn-outline-dark float-right m-2" 
 data-bs-toggle="modal" data-bs-target="#exampleModal"
 (click)="addClick()"
@@ -7,6 +10,7 @@ data-backdrop="static" data-keyboard="false"
 >
     Add Printer
   </button>
+  
   
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -31,32 +35,32 @@ data-backdrop="static" data-keyboard="false"
 
 <table class="table table-striped " >
     <thead>
-      <tr>
-        <div class="d-flex flex-row ">
-          <input [(ngModel)]="PrinterNameFilter" class="form-control" (keyup)=Filterfn()
-            placeholder="Filter by Name">
-          <div style="width: 5px;"></div>
-          <button type="button" class="btn btn-light mr-1 btn btn-outline-dark" (click)="sortResult('PrinterName',true)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-down" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
-              <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zM4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
-            </svg>  
-          </button>
-          <div style="width: 5px;"></div>
-          <button type="button" class="btn btn-light mr-1 btn btn-outline-dark" (click)="sortResult('PrinterName',false)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-down-alt" viewBox="0 0 16 16">
-              <path d="M12.96 7H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V7z"/>
-              <path fill-rule="evenodd" d="M10.082 12.629 9.664 14H8.598l1.789-5.332h1.234L13.402 14h-1.12l-.419-1.371h-1.781zm1.57-.785L11 9.688h-.047l-.652 2.156h1.351z"/>
-              <path d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
-            </svg>
-          </button>
-          <div style="width: 5px;"></div>
-          <button type="button" class="btn btn-light mr-1 btn btn-outline-dark" (click)="refreshPrinterList()">
-            Clear</button>
-        </div>
-      </tr>
-        <tr>   
-            <th>            
+  
+        <tr> 
+                <th></th>    
+            <th>
+              <div class="d-flex flex-row ">
+                <input [(ngModel)]="PrinterNameFilter" class="form-control" (keyup)=Filterfn()
+                  placeholder="Filter by Name">
+                <div style="width: 5px;"></div>
+                <button type="button" class="btn btn-light mr-1 btn btn-outline-dark" (click)="sortResult('PrinterName',true)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-down" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
+                    <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zM4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
+                  </svg>  
+                </button>
+                <div style="width: 5px;"></div>
+                <button type="button" class="btn btn-light mr-1 btn btn-outline-dark" (click)="sortResult('PrinterName',false)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-down-alt" viewBox="0 0 16 16">
+                    <path d="M12.96 7H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V7z"/>
+                    <path fill-rule="evenodd" d="M10.082 12.629 9.664 14H8.598l1.789-5.332h1.234L13.402 14h-1.12l-.419-1.371h-1.781zm1.57-.785L11 9.688h-.047l-.652 2.156h1.351z"/>
+                    <path d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
+                  </svg>
+                </button>
+                <div style="width: 5px;"></div>
+                <button type="button" class="btn btn-light mr-1 btn btn-outline-dark" (click)="refreshPrinterList()">
+                  Clear</button>
+              </div>
               Printer Name</th>
             <th>Folder To Monitor</th>
             <th>OutputType</th>
@@ -70,6 +74,8 @@ data-backdrop="static" data-keyboard="false"
     </thead>
     <tbody>
         <tr *ngFor="let dataItem of PrinterList">
+          <td style="width: 10px;"><input type="checkbox" (change)="checkbox(dataItem)" style="width: 20px;"></td>
+  
             <td>{{dataItem.PrinterName}}</td>
             <td>{{dataItem.FolderToMonitor}}</td>
             <td>{{dataItem.OutputType}}</td>
@@ -88,7 +94,7 @@ data-backdrop="static" data-keyboard="false"
               </svg></button></td>
 
               <td><button type="button" class="btn btn-light mr-1"
-          
+                (click)="deleteSinglePrinter(dataItem)"
               >
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>

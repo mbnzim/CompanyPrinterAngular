@@ -62,6 +62,11 @@ export class SharedService {
     return this.http.put<any>(this.APIUrl + '/Printer', val);
   }
 
+  deletePrinter(val: any) {
+    return this.http.put(this.APIUrl + '/Printer/Delete?id='+val,"");
+  }
+
+
     //PrinterMake End points
     getPrinterMakeList(): Observable<any[]> {
       return this.http.get<any>(this.APIUrl + '/PrinterMake');

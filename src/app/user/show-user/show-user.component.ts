@@ -8,7 +8,9 @@ import {SharedService} from 'src/app/shared.service';
 })
 export class ShowUserComponent implements OnInit {
 
-  constructor(private service:SharedService) { }
+  constructor(private service:SharedService) { 
+    this.pagedata= new Array<any>();
+  }
 
   ModalTitle:string="";
   ActivateAddEditDepComp:boolean=false;
@@ -17,6 +19,11 @@ export class ShowUserComponent implements OnInit {
   designtionList:any=[];
   PrinterNameFilter: string = "";
   PrinterListWithoutFilter: any=[];
+
+  pagedata: Array<any> = [];
+  totalRecords:number=0;
+  page:Number=1;
+
 
   // this.DesigntionList=data;
   ngOnInit(): void {
@@ -32,6 +39,8 @@ export class ShowUserComponent implements OnInit {
     this.service.getUserList().subscribe(data=>{
       this.UserList=data;
       this.PrinterListWithoutFilter=data;
+      this.pagedata=data
+      this.totalRecords=data.length
     });
     this.PrinterNameFilter="";
   }

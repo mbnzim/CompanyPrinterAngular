@@ -23,30 +23,35 @@
 </form> -->
 
 <!------ Include the above in your HEAD tag ---------->
-<div *ngIf="isLoginError" class="red-text center error-message">
-  <i class="material-icons">error</i> Incorrect username or password
+<br><br><br>
+<div *ngIf="isLoginError" class="red-text center error-message" style="color:red;text-align:center">
+  <i class="material-icons" >error</i> Incorrect username or password
 </div>
+<br>
 <div class="container">
 
 	<div class="row text-center">
 	    <div class="col-md-6 offset-md-3">
 	        <div class="card">
 	            <div class="card-body" >
-	                <!-- <div class="login-img">
-	                    <img src="https://demos6.softaculous.com/PrestaShop/img/preston-login@2x.png">
-	                </div> -->
 	                <div class="login-title">
-	                    <h4>Log In</h4>
+	                    <h4 aria-describedby="basic-addon1">Log In</h4>
 	                </div>
 	                <div class="login-form mt-4">
 	                    <form #loginForm="ngForm" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
                         <div class="form-row" >
-                            <div class="form-group col-md-12">
-                              <input type="text" #UserName ngModel name="UserName" placeholder="Username" required>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1">@</span>
                             </div>
-                            <div class="form-group col-md-12">
-                              <input type="password" #Password ngModel name="Password" placeholder="Password" required>
+                            <input type="text" class="form-control"  #UserName ngModel name="UserName" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+                          </div>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1">P</span>
                             </div>
+                            <input type="password" #Password ngModel name="Password" class="form-control"  #UserName ngModel name="UserName" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+                          </div>
                           </div>
                          <div class="form-row">
                         <div class="form-group">
@@ -61,7 +66,7 @@
                           </div>                        
                         
                         <div class="form-row">
-                          <button [disabled]="!loginForm.valid" class="btn-large btn-submit" type="submit">Login</button>
+                          <button [disabled]="!loginForm.valid" class="btn-large btn-submit btn-lg" type="submit" style="background-color: #38547B;"> Login</button>
                         </div>
                     </form>
 	                </div>

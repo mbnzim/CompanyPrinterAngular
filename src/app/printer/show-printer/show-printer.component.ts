@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SharedService} from 'src/app/shared.service';
+//import { JwPaginationComponent } from 'jw-angular-pagination';
 
 @Component({
   selector: 'app-show-printer',
@@ -16,6 +17,7 @@ export class ShowPrinterComponent implements OnInit {
   PrinterList:any=[];
   PrinterNameFilter: string = "";
   PrinterListWithoutFilter: any=[];
+  deletePrinters:any=[];
 
   ngOnInit(): void {
     this.refreshPrinterList();
@@ -55,6 +57,35 @@ export class ShowPrinterComponent implements OnInit {
       this.PrinterListWithoutFilter=data;
     });
     this.PrinterNameFilter="";
+  }
+
+  checkbox(item: any) {
+    if (this.deletePrinters.find((x: any)=> x == item)) {
+      this.deletePrinters.splice(this.deletePrinters.indexOf(item), 1)
+    }
+    else {
+      this.deletePrinters.push(item);
+    }
+ 
+  }
+  i: number = 0;
+
+  deletePrinter(){
+    for(this.i=0;this.i<this.deletePrinters.length;this.i++){
+      this.service.deletePrinter(this.deletePrinters[this.i].EngenPrintersID).subscribe(data => {
+      alert(data.toString());
+      this.refreshPrinterList();
+       })
+       }
+
+  }
+  deleteSinglePrinter(item:any){
+    if(confirm('Are you sure??')){
+      this.service.deletePrinter(item.EngenPrintersID).subscribe(data=>{
+        alert(data.toString());
+        this.refreshPrinterList();
+      })
+    }
   }
 
   Filterfn() {

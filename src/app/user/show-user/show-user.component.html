@@ -1,4 +1,5 @@
 <app-home></app-home>
+<br><br><br>
 <!-- Button trigger modal -->
 <button type="button" class="m-1 btn btn-light btn-outline-dark float-right m-2" 
 data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -70,6 +71,7 @@ data-backdrop="static" data-keyboard="false"
         </tr>
     </thead>
     <tbody>
+      
         <tr *ngFor="let dataItem of UserList">
             <td>{{dataItem.LastName}}</td>
             <td>{{dataItem.FirstName}}</td>

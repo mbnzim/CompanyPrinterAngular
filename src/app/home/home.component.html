@@ -1,8 +1,8 @@
-<nav style="background-color:	#38547B;">
-    <div class="nav-wrapper" >
+<!-- <nav class="navbar navbar-dark bg-dark" row>
+   
       <a class="brand-logo center">
         Admin Bashboard</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul>
         <li>
           <a routerLink='/printer' >Printers</a>
         </li>
@@ -23,9 +23,39 @@
         </li>
    
       </ul>
-    </div>
+ 
+  </nav> -->
+
+  <nav class="navbar fixed-top ">
+    <a class="navbar-brand "></a>
+    <ul>
+      <li>
+        <a routerLink='/printer' >Printers</a>
+      </li>
+      <li>
+        <a routerLink='/user' >Users</a>
+      </li>
+      <li>
+        <a routerLink='/designation' >Designations</a>
+      </li>
+      <li>
+        <a routerLink='/document' >Documents</a>
+      </li>
+      <li>
+        <a routerLink='/printermake' >Printermake</a>
+      </li>
+      <li>
+        <a (click)="Logout()">Logout</a>
+      </li>
+ 
+    </ul>
   </nav>
 
+  <!-- <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+    </nav>
+  </div> -->
 <!-- <div class="container"> -->
 
   <!-- <h3 class="d-flex justify-content-center">Company Printer Terra Project</h3> -->

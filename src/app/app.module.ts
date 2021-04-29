@@ -27,10 +27,13 @@ import { AddEditDocComponent } from './document/add-edit-doc/add-edit-doc.compon
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { DefaultHomeComponent } from './default-home/default-home.component';
+ import {NgxPaginationModule} from 'ngx-pagination'; 
+
 
 
 @NgModule({
   declarations: [
+
     AppComponent,
     DesignationComponent,
     ShowDesComponent,
@@ -51,14 +54,16 @@ import { DefaultHomeComponent } from './default-home/default-home.component';
     AddEditDocComponent,
     HomeComponent,
     DefaultHomeComponent,
-   
+    //NgxPaginationModule
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [SharedService,AuthGuard],
   bootstrap: [AppComponent]

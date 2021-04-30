@@ -1,10 +1,25 @@
-<div class="form-froup row">
+<form [formGroup]="userForm" novalidate name="userForm">
+
+
+<div class="form-froup row" >
+    <div class="form-group">
+        <label class="col-sm-2 col-form-label">PrinterMake </label>
+        <div class="col-sm-10">
+            <input type="text" formControlName="PrinterMakeName" class="form-control" [(ngModel)]="PrinterMakeName"
+            placeholder="Enter Designation Name">
+        </div>
+        <div *ngIf="getControl.PrinterMakeName.touched && getControl.PrinterMakeName.invalid" class="text-danger">
+            <div *ngIf="getControl.PrinterMakeName.errors.required">PrinterMake is required.</div>
+          </div>
+        </div>
+    </div> 
+<!-- <div class="form-froup row">
 
     <label class="col-sm-2 col-form-label">PrinteMake Name</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" [(ngModel)]="PrinterMakeName" [ngModelOptions]="{standalone: true}">
     </div>
-</div> 
+</div>  -->
 
 <button (click)="addPrinterMake()" *ngIf="printermake.PrinterMakeID==0" class="btn btn-light btn-outline-dark">
     Add
@@ -13,4 +28,4 @@
 <button (click)="updatePrinterMake()" *ngIf="printermake.PrinterMakeID!=0" class=" btn btn-light btn-outline-dark">
     Update
 </button>
-
+</form>

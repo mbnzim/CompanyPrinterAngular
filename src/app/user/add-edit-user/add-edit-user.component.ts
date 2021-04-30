@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {SharedService} from 'src/app/shared.service';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 
 @Component({
@@ -9,7 +10,7 @@ import {SharedService} from 'src/app/shared.service';
 })
 export class AddEditUserComponent implements OnInit {
 
-  constructor(private service:SharedService) { }
+  constructor(private service:SharedService, public formBuilder: FormBuilder) { }
 
   @Input() dep:any;
   UserID:string="";
@@ -25,6 +26,7 @@ export class AddEditUserComponent implements OnInit {
   LastModificationDate:string="";
 
   designtionList:any=[];
+  userForm: any;
 
   ngOnInit(): void {
     this.UserID = this.dep.UserID;
@@ -36,12 +38,30 @@ export class AddEditUserComponent implements OnInit {
     this.Password = this.dep.Password;
     this.Address = this.dep.Address;
     this.DOB = this.dep.DOB;
+    this.CreatedDate = this.dep.CreatedDate;
+    this.LastModificationDate= this.dep.LastModificationDate;
+    
 
     this.service.getDesignationList().subscribe(data=>{
       this.designtionList=data;
     });
-  }
 
+    this.userForm = this.formBuilder.group({
+      LastName: ['', [Validators.required, Validators.minLength(250)]],
+      FirstName: ['', [Validators.required, Validators.minLength(250)]],
+      DesignationID: ['', [Validators.required, Validators.minLength(10)]],
+      Email: ['', [Validators.required, Validators.minLength(250)]],
+      UserName: ['', [Validators.required, Validators.minLength(250)]],
+      Password: ['', [Validators.required, Validators.minLength(20)]],
+      Address: ['', [Validators.required, Validators.minLength(250)]],
+      DOB: ['', [Validators.required, Validators.minLength(20)]],
+
+    });
+  }
+ //get validation form
+    get getControl(){
+      return this.userForm.controls;
+    }
   addUser(){
     var val = {
       UserID:this.UserID,
@@ -63,7 +83,7 @@ export class AddEditUserComponent implements OnInit {
 
   updateUser(){
     var val = {
-       UserID:this.UserID,
+      UserID:this.UserID,
       LastName:this.LastName,
       FirstName:this.FirstName,
       DesignationID:this.DesignationID,
@@ -71,7 +91,9 @@ export class AddEditUserComponent implements OnInit {
       UserName:this.UserName,
       Password:this.Password,
       Address:this.Address,
-      DOB:this.DOB
+      DOB:this.DOB,
+      CreatedDate:this.CreatedDate,
+      LastModificationDate:this.LastModificationDate
     };
     this.service.updateUser(val).subscribe(res=>{
     alert(res.toString());

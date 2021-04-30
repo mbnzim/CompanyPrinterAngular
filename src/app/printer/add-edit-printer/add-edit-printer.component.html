@@ -1,69 +1,85 @@
-<form>
-    <div class="form-froup ">
+<form [formGroup]="userForm" novalidate name="userForm">
+    <div class="form-froup row" >
+        <div class="form-group">
+            <label class="col-sm-2 col-form-label">Printer Name</label>
+            <div class="col-sm-10">
+                <input type="text" formControlName="PrinterName" class="form-control" [(ngModel)]="PrinterName"
+                placeholder="Enter Printer Name">
+            </div>
+            <div *ngIf="getControl.PrinterName.touched && getControl.PrinterName.invalid" class="text-danger">
+                <div *ngIf="getControl.PrinterName.errors.required">Printer name is required.</div>
+              </div>
+        </div>
+    </div> 
+
+    <div class="form-froup row" >
+        <div class="form-group">
+            <label class="col-sm-2 col-form-label">Folder To Monitor</label>
+            <div class="col-sm-10">
+                <input type="text" formControlName="FolderToMonitor" class="form-control" [(ngModel)]="FolderToMonitor"
+                placeholder="Enter Folder To Monitor">
+            </div>
+            <div *ngIf="getControl.FolderToMonitor.touched && getControl.FolderToMonitor.invalid" class="text-danger">
+                <div *ngIf="getControl.FolderToMonitor.errors.required">Folder To Monitor is required.</div>
+              </div>
+        </div>
+    </div> 
+        
     
-        <!-- <label class="col-sm-2 col-form-label">PrinterID:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" [(ngModel)]="EngenPrintersID" [ngModelOptions]="{standalone: true}" 
-          >
-        </div> -->
-        <label class="col-sm-2 col-form-label">Printer Name:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" [(ngModel)]="PrinterName" [ngModelOptions]="{standalone: true}" 
-          >
+    <div class="form-froup row" >
+        <div class="form-group">
+            <label class="col-sm-2 col-form-label">Output Type</label>
+            <div class="col-sm-10">
+                <input type="text" formControlName="OutputType" class="form-control" [(ngModel)]="OutputType"
+                placeholder="Enter Output Type">
+            </div>
+            <div *ngIf="getControl.OutputType.touched && getControl.FolderToMonitor.invalid" class="text-danger">
+                <div *ngIf="getControl.OutputType.errors.required">Output Type is required.</div>
+              </div>
         </div>
-        
-        <label class="col-sm-2 col-form-label">Folder To Monitor:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" [(ngModel)]="FolderToMonitor" [ngModelOptions]="{standalone: true}" 
-           >
-        </div>    
-        
-        <label class="col-sm-2 col-form-label">Output Type:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" [(ngModel)]="OutputType"  [ngModelOptions]="{standalone: true}" 
-            >
+    </div> 
+
+    <div class="form-froup row" >
+        <div class="form-group">
+            <label class="col-sm-2 col-form-label">File Output</label>
+            <div class="col-sm-10">
+                <input type="text" formControlName="FileOutput" class="form-control" [(ngModel)]="FileOutput"
+                placeholder="Enter File Output">
+            </div>
+            <div *ngIf="getControl.FileOutput.touched && getControl.FolderToMonitor.invalid" class="text-danger">
+                <div *ngIf="getControl.FileOutput.errors.required">Output Type is required.</div>
+              </div>
         </div>
-        
-        <label class="col-sm-2 col-form-label">FileOutput:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" [(ngModel)]="FileOutput"  [ngModelOptions]="{standalone: true}" 
-           >
-        </div>
-       
-        <label class="col-sm-2 col-form-label">Printer Make:</label>
-        <div class="col-sm-10">
-            <select class="form-control" [(ngModel)]="PrinterMakeID"  [ngModelOptions]="{standalone: true}" >
-               
-                <option [value]="PrinterMakeID">
-                    --Select--
-                </option>
-                <option *ngFor ="let dataItem of printermakeList" [value]="dataItem.PrinterMakeID"> 
-                    {{dataItem.PrinterMakeName}}
-                </option>
-        
-            </select> 
-        </div>
-        
-        
-        <label class="col-sm-2 col-form-label">Active:</label>
-        <div class="col-sm-10">
-            <input type="number" class="form-control" [(ngModel)]="Active" [ngModelOptions]="{standalone: true}" 
-            >
-        </div>
-        
-        <!-- <label class="col-sm-2 col-form-label">Created Date:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" [(ngModel)]="CreatedDate" [ngModelOptions]="{standalone: true}" 
-            >
-        </div>
-        <label class="col-sm-2 col-form-label">Last Modification Date:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" [(ngModel)]="LastModificationDate" [ngModelOptions]="{standalone: true}" 
-            >
-        </div>  -->
-        
-    </div>
+    </div> 
+
+<div class="form-froup row" >
+    <div class="form-group">
+    <label class="col-sm-2 col-form-label">Printer Make:</label>
+    <div class="col-sm-10">
+        <select class="form-control" [(ngModel)]="PrinterMakeID"  formControlName="PrinterMakeID"  >
+           
+            <option [value]="PrinterMakeID">
+                --Select--
+            </option>
+            <option *ngFor ="let dataItem of printermakeList" [value]="dataItem.PrinterMakeID"> 
+                {{dataItem.PrinterMakeName}}
+            </option>
     
+        </select> 
+      </div>
+            <div *ngIf="getControl.PrinterMakeID.touched && getControl.FolderToMonitor.invalid" class="text-danger">
+                <div *ngIf="getControl.PrinterMakeID.errors.required">PrinterMake is not selected.</div>
+            </div>
+            </div>
+        </div> 
+
+        <div class="form-froup ">
+                <label class="col-sm-2 col-form-label">Active:</label>
+                <div class="col-sm-10">
+            <input type="number" class="form-control" [(ngModel)]="Active" [ngModelOptions]="{standalone: true}" >
+            </div>    
+        </div>
+        
         <br/>
         <div>
         <button (click)="addPrinter()" *ngIf="printer.EngenPrintersID==0"  class="btn btn-light btn-outline-dark ">
@@ -74,6 +90,6 @@
             Update
         </button>
     </div>
-    </form>
+ </form>
     
     

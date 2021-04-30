@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {SharedService} from 'src/app/shared.service';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-add-edit-printer',
@@ -8,7 +9,7 @@ import {SharedService} from 'src/app/shared.service';
 })
 export class AddEditPrinterComponent implements OnInit {
 
-  constructor(private service:SharedService) { }
+  constructor(private service:SharedService,public formBuilder: FormBuilder) { }
 
   @Input() printer:any;
   EngenPrintersID:string="";
@@ -21,6 +22,7 @@ export class AddEditPrinterComponent implements OnInit {
   CreatedDate:string= "";
   LastModificationDate:string="";
   printermakeList:any=[];
+  userForm:any;
 
   ngOnInit(): void {
     this.EngenPrintersID=this.printer.EngenPrintersID;
@@ -35,8 +37,22 @@ export class AddEditPrinterComponent implements OnInit {
 
     this.service.getPrinterMakeList().subscribe(data=>{
       this.printermakeList=data;
+
+      this.userForm = this.formBuilder.group({
+        PrinterName: ['', [Validators.required, Validators.minLength(50)]],
+        FolderToMonitor: ['', [Validators.required, Validators.minLength(250)]],
+        OutputType: ['', [Validators.required, Validators.minLength(50)]],
+        PrinterMakeID: ['', [Validators.required, Validators.minLength(50)]],
+        FileOutput: ['', [Validators.required, Validators.minLength(250)]],
+        Active: ['', [Validators.required, Validators.minLength(5)]],
+  
+      });
     });
   }
+   //get validation form
+ get getControl(){
+  return this.userForm.controls;
+}
 
   addPrinter(){
     var val = {

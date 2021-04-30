@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {SharedService} from 'src/app/shared.service';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-add-edd-printermake',
@@ -8,19 +9,30 @@ import {SharedService} from 'src/app/shared.service';
 })
 export class AddEddPrintermakeComponent implements OnInit {
 
-  constructor(private service:SharedService) { }
+  constructor(private service:SharedService, public formBuilder: FormBuilder) { }
 
 
   @Input() printermake:any;
   PrinterMakeID:string="";
   PrinterMakeName:string="";
   Status:string="";
+  userForm:any;
 
   ngOnInit(): void {
     this.PrinterMakeID=this.printermake.PrinterMakeID;
     this.PrinterMakeName=this.printermake.PrinterMakeName;
     this.Status= this.printermake.Status;
+
+    this.userForm = this.formBuilder.group({
+      PrinterMakeName: ['', [Validators.required, Validators.minLength(250)]],
+
+    });
   }
+
+ //get validation form
+ get getControl(){
+      return this.userForm.controls;
+    }
 
   addPrinterMake(){
     var val = {

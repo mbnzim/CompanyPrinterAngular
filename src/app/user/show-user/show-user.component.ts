@@ -55,7 +55,7 @@ export class ShowUserComponent implements OnInit {
       UserName: "",
       Password: "",
       Address: "",
-      DOB: new Date(),
+      DOB: "",
       CreatedDate: "",
       LastModificationDate: ""
     }

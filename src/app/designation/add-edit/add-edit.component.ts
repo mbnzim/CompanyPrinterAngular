@@ -31,6 +31,7 @@ export class AddEditComponent implements OnInit {
   return this.userForm.controls;
 }
   addDesignation(){
+    //validate if the dasignation name has been added
     if(this.DesignationName=== null || this.DesignationName.match(/^ *$/) !== null){
       alert('Invalid name');
     }else{

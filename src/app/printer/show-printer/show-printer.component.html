@@ -76,12 +76,12 @@ data-backdrop="static" data-keyboard="false"
         <tr *ngFor="let dataItem of PrinterList | paginate:
          {  
            id: 'listing_pagination',
-           itemsPerPage: 7,
+           itemsPerPage: 8,
            currentPage: page,
            totalItems: totalRecords
           }"
         >
-          <td style="width: 10px;"><input type="checkbox" (change)="checkbox(dataItem)" style="width: 20px;"></td>
+          <td style="width: 10px;"><input type="checkbox" (change)="checkbox(dataItem)"  style="width: 40px;"></td>
   
             <td>{{dataItem.PrinterName}}</td>
             <td>{{dataItem.FolderToMonitor}}</td>

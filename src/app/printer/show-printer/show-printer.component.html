@@ -37,7 +37,8 @@ data-backdrop="static" data-keyboard="false"
     <thead>
   
         <tr> 
-                <th></th>    
+                <th></th>  
+             
             <th>
               <div class="d-flex flex-row ">
                 <input [(ngModel)]="PrinterNameFilter" class="form-control" (keyup)=Filterfn()
@@ -82,12 +83,11 @@ data-backdrop="static" data-keyboard="false"
           }"
         >
           <td style="width: 10px;"><input type="checkbox" (change)="checkbox(dataItem)"  style="width: 40px;"></td>
-  
+          <!-- <td>{{dataItem.EngenPrintersID}}</td> -->
             <td>{{dataItem.PrinterName}}</td>
             <td>{{dataItem.FolderToMonitor}}</td>
             <td>{{dataItem.OutputType}}</td>
             <td>{{dataItem.FileOutput}}</td>
-            <!-- <td>{{dataItem.PrinterMakeID}}</td> -->
             <td>{{dataItem.Active}}</td>
             <td>{{dataItem.CreatedDate}}</td>
             

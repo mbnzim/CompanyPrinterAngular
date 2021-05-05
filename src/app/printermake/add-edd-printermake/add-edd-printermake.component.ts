@@ -12,13 +12,18 @@ export class AddEddPrintermakeComponent implements OnInit {
   constructor(private service:SharedService, public formBuilder: FormBuilder) { }
 
 
+
   @Input() printermake:any;
+  ActivateAddEditDepComp:boolean=false;
   PrinterMakeID:string="";
   PrinterMakeName:string="";
+  PrinterMakeList:any=[];
   Status:string="";
   userForm:any;
 
+
   ngOnInit(): void {
+    //this.refreshPrinterMakeList();
     this.PrinterMakeID=this.printermake.PrinterMakeID;
     this.PrinterMakeName=this.printermake.PrinterMakeName;
     this.Status= this.printermake.Status;
@@ -28,6 +33,21 @@ export class AddEddPrintermakeComponent implements OnInit {
 
     });
   }
+
+  closeClick(){
+    this.ActivateAddEditDepComp=false;
+    // this.refreshPrinterMakeList();
+  }
+   
+  // refreshPrinterMakeList(){
+  //   this.service.getPrinterMakeList().subscribe(data=>{
+  //     this.PrinterMakeList=data;
+  //    // this.totalRecords = data.length;
+  //     this.PrinterMakeListWithoutFilter=data;
+  //   });
+  //   this.PrinterMakeFilter="";
+  // }
+
 
  //get validation form
  get getControl(){
@@ -53,5 +73,6 @@ export class AddEddPrintermakeComponent implements OnInit {
     alert(res.toString());
     });
   }
+
 
 }

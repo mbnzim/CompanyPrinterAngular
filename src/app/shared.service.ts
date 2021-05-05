@@ -63,7 +63,8 @@ export class SharedService {
   }
 
   deletePrinter(val: any) {
-    return this.http.put(this.APIUrl + '/Printer/Delete?id='+val,"");
+    //return this.http.put(this.APIUrl + '/Printer/Delete?id='+val,"");
+    return this.http.put('https://localhost:44329/api/Printer/Delete?id='+val,"");
   }
 
 

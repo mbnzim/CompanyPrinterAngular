@@ -17,6 +17,9 @@ export class ShowPrintermakeComponent implements OnInit {
   totalRecords:number=0;
   page:any=1;
 
+  
+  PrinterMakeFilter: string = "";
+  PrinterMakeListWithoutFilter: any=[];
   ngOnInit(): void {
     this.refreshPrinterMakeList();
   }
@@ -55,6 +58,27 @@ export class ShowPrintermakeComponent implements OnInit {
     this.service.getPrinterMakeList().subscribe(data=>{
       this.PrinterMakeList=data;
       this.totalRecords = data.length;
+      this.PrinterMakeListWithoutFilter =data;
+    });
+    this.PrinterMakeFilter="";
+  }
+
+  Filterfn() {
+    var PrinterMakeFilter = this.PrinterMakeFilter;
+ 
+    this.PrinterMakeList = this.PrinterMakeListWithoutFilter.filter(function (el:any) {
+      return el.PrinterMakeName.toString().toLowerCase().includes(PrinterMakeFilter.toString().trim().toLowerCase())
+    });
+  }
+ 
+  sortResult(prop: any, asc: any) {
+    this.PrinterMakeList = this.PrinterMakeListWithoutFilter.sort(function (a:any, b:any) {
+      if (asc) {
+        return (a[prop] > b[prop]) ? 1 : (a[prop] < b[prop] ? -1 : 0)
+      }
+      else {
+        return (b[prop] > a[prop]) ? 1 : (b[prop] < a[prop] ? -1 : 0)
+      }
     });
   }
 }
